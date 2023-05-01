@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gerador de requisições - API Tickets</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <div class="container mt-5">
+        <h1 class="mb-4 display-4">Gerador de requisições - API Tickets</h1>
+        <hr>
+        <form>
+            <div class="form-group">
+                <label for="select-options" style="font-size: 20px;">Select</label>
+                <div class="row">
+                    <div class="col-md-auto" id="selects">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="idTicket" id="idTicket" value="id">
+                            <label class="form-check-label" for="idTicket">
+                                id (Número)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="protocol" id="protocol"
+                                value="protocol">
+                            <label class="form-check-label" for="protocol">
+                                protocol (Protocolo)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="type" id="type" value="type">
+                            <label class="form-check-label" for="type">
+                                type (Tipo)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="category" id="category"
+                                value="category">
+                            <label class="form-check-label" for="category">
+                                category (Categoria)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="urgency" id="urgency" value="urgency">
+                            <label class="form-check-label" for="urgency">
+                                urgency (Urgência)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="resolvedIn" id="resolvedIn"
+                                value="resolvedIn">
+                            <label class="form-check-label" for="resolvedIn">
+                                resolvedIn (Data de Resolvido)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="reopenedIn" id="reopenedIn"
+                                value="reopenedIn">
+                            <label class="form-check-label" for="reopenedIn">
+                                reopenedIn (Data de reabertura)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="closedIn" id="closedIn"
+                                value="closedIn">
+                            <label class="form-check-label" for="closedIn">
+                                closedIn (Data que foi fechado)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="lastActionDate" id="lastActionDate"
+                                value="lastActionDate">
+                            <label class="form-check-label" for="lastActionDate">
+                                lastActionDate (Data da última ação)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="actionCount" id="actionCount"
+                                value="actionCount">
+                            <label class="form-check-label" for="actionCount">
+                                actionCount (Quantidade de ações)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="originEmailAccount"
+                                id="originEmailAccount" value="originEmailAccount">
+                            <label class="form-check-label" for="originEmailAccount">
+                                originEmailAccount (Conta que recebeu o ticket)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ownerTeam" id="ownerTeam"
+                                value="ownerTeam">
+                            <label class="form-check-label" for="ownerTeam">
+                                ownerTeam (Equipe do responsável)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="serviceFull" id="serviceFull"
+                                value="serviceFull" />
+                            <label class="form-check-label" for="serviceFull">
+                                serviceFull (Lista com os níveis do serviço)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="serviceFirstLevelId"
+                                id="serviceFirstLevelId" value="serviceFirstLevelId" />
+                            <label class="form-check-label" for="serviceFirstLevelId">
+                                serviceFirstLevelId (ID do serviço)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="serviceFirstLevel"
+                                id="serviceFirstLevel" value="serviceFirstLevel" />
+                            <label class="form-check-label" for="serviceFirstLevel">
+                                serviceFirstLevel (Nome do primeiro nível do serviço)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="serviceSecondLevel"
+                                id="serviceSecondLevel" value="serviceSecondLevel" />
+                            <label class="form-check-label" for="serviceSecondLevel">
+                                serviceSecondLevel (Nome do segundo nível do serviço)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="serviceThirdLevel"
+                                id="serviceThirdLevel" value="serviceThirdLevel" />
+                            <label class="form-check-label" for="serviceThirdLevel">
+                                serviceThirdLevel (Nome do terceiro nível do serviço)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="jiraIssueKey" id="jiraIssueKey"
+                                value="jiraIssueKey" />
+                            <label class="form-check-label" for="jiraIssueKey">
+                                jiraIssueKey (Issue do Jira)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="redmineIssueId" id="redmineIssueId"
+                                value="redmineIssueId" />
+                            <label class="form-check-label" for="redmineIssueId">
+                                redmineIssueId (Issue do Redmine)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="status" id="status" value="status">
+                            <label class="form-check-label" for="status">
+                                status
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="baseStatus" id="baseStatus"
+                                value="baseStatus">
+                            <label class="form-check-label" for="baseStatus">
+                                baseStatus (Status base)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="baseStatus" id="baseStatus"
+                                value="baseStatus">
+                            <label class="form-check-label" for="baseStatus">
+                                baseStatus (Status base)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="justification" id="justification"
+                                value="justification">
+                            <label class="form-check-label" for="justification">
+                                justification (Justificativa)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="origin" id="origin" value="origin">
+                            <label class="form-check-label" for="origin">
+                                origin (Origem)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-auto" id="selects">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="subject" id="subject" value="subject">
+                            <label class="form-check-label" for="subject">
+                                subject (Assunto do ticket)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="createdDate" id="createdDate"
+                                value="createdDate">
+                            <label class="form-check-label" for="createdDate">
+                                createdDate (Data de abertura)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="contactForm" id="contactForm"
+                                value="contactForm">
+                            <label class="form-check-label" for="contactForm">
+                                contactForm (Formulário de contato)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="tags" id="tags" value="tags">
+                            <label class="form-check-label" for="tags">
+                                tags
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="cc" id="cc" value="cc">
+                            <label class="form-check-label" for="cc">
+                                cc (E-mails CC do ticket)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="lastUpdate" id="lastUpdate"
+                                value="lastUpdate">
+                            <label class="form-check-label" for="lastUpdate">
+                                lastUpdate (Data da última alteração do ticket)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="lifetimeWorkingTime"
+                                id="lifetimeWorkingTime" value="lifetimeWorkingTime">
+                            <label class="form-check-label" for="lifetimeWorkingTime">
+                                lifetimeWorkingTime (Vida do ticket em minutos de horas úteis)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="stoppedTime" id="stoppedTime"
+                                value="stoppedTime">
+                            <label class="form-check-label" for="stoppedTime">
+                                stoppedTime (Tempo que o ticket ficou parado em horas corridas)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="stoppedTimeWorkingTime"
+                                id="stoppedTimeWorkingTime" value="stoppedTimeWorkingTime">
+                            <label class="form-check-label" for="stoppedTimeWorkingTime">
+                                stoppedTimeWorkingTime (Tempo que o ticket ficou parado em minutos de horas úteis)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="resolvedInFirstCall"
+                                id="resolvedInFirstCall" value="resolvedInFirstCall">
+                            <label class="form-check-label" for="resolvedInFirstCall">
+                                resolvedInFirstCall (Se foi Resolvido no momento da abertura)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="chatWidget" id="chatWidget"
+                                value="chatWidget">
+                            <label class="form-check-label" for="chatWidget">
+                                chatWidget (Aplicativo de chat origem)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="chatGroup" id="chatGroup"
+                                value="chatGroup">
+                            <label class="form-check-label" for="chatGroup">
+                                chatGroup (Grupo de chat origem)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="chatTalkTime" id="chatTalkTime"
+                                value="chatTalkTime">
+                            <label class="form-check-label" for="chatTalkTime">
+                                chatTalkTime (Tempo de chat em segundos)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="chatWaitingTime" id="chatWaitingTime"
+                                value="chatWaitingTime">
+                            <label class="form-check-label" for="chatWaitingTime">
+                                chatWaitingTime (Tempo aguardando para ser atendido)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="sequence" id="sequence"
+                                value="sequence">
+                            <label class="form-check-label" for="sequence">
+                                sequence (Número inteiro no campo sequência)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="slaAgreement" id="slaAgreement"
+                                value="slaAgreement">
+                            <label class="form-check-label" for="slaAgreement">
+                                slaAgreement (Contrato de SLA)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="slaAgreementRule"
+                                id="slaAgreementRule" value="slaAgreementRule">
+                            <label class="form-check-label" for="slaAgreementRule">
+                                slaAgreementRule (Regra do contrato SLA)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="slaSolutionTime" id="slaSolutionTime"
+                                value="slaSolutionTime">
+                            <label class="form-check-label" for="slaSolutionTime">
+                                slaSolutionTime (Tempo de solução do contrato)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="slaResponseTime" id="slaResponseTime"
+                                value="slaResponseTime">
+                            <label class="form-check-label" for="slaResponseTime">
+                                slaResponseTime (Tempo de resposta do contrato)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="slaSolutionChangedByUser"
+                                id="slaSolutionChangedByUser" value="slaSolutionChangedByUser">
+                            <label class="form-check-label" for="slaSolutionChangedByUser">
+                                slaSolutionChangedByUser (Indica se o contrato SLA foi alterado manualmente)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="slaSolutionDate" id="slaSolutionDate"
+                                value="slaSolutionDate">
+                            <label class="form-check-label" for="slaSolutionDate">
+                                slaSolutionDate (Data de solução do SLA)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="slaSolutionDateIsPaused"
+                                id="slaSolutionDateIsPaused" value="slaSolutionDateIsPaused">
+                            <label class="form-check-label" for="slaSolutionDateIsPaused">
+                                slaSolutionDateIsPaused (Indicador se SLA pausado)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="slaResponseDate" id="slaResponseDate"
+                                value="slaResponseDate">
+                            <label class="form-check-label" for="slaResponseDate">
+                                slaResponseDate (Data da resposta do SLA)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="slaRealResponseDate"
+                                id="slaRealResponseDate" value="slaRealResponseDate">
+                            <label class="form-check-label" for="slaRealResponseDate">
+                                slaRealResponseDate (Data real da resposta)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- Expands -->
+            <div class="form-group">
+                <label for="expand-options" style="font-size: 20px;">Expand</label>
+                <div class="row">
+                    <div class="col-md-auto" id="expands">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="owner" id="owner" value="owner">
+                            <label class="form-check-label" for="owner">
+                                owner (Responsável)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="slaSolutionChangedBy"
+                                id="slaSolutionChangedBy" value="slaSolutionChangedBy">
+                            <label class="form-check-label" for="slaSolutionChangedBy">
+                                slaSolutionChangedBy (Dados da pessoa que alterou o contrato SLA)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="actions" id="actions" value="actions">
+                            <label class="form-check-label" for="actions">
+                                actions (Ações do ticket)
+                            </label>
+                            <div class="form-group hidden" id="expandActions">
+                                <hr><label for="expand-actions-options" style="font-size: 18px;">Expand - Actions</label>
+                                <div class="col-md-auto" id="actions-options">
+                                    <div class="form-check" >
+                                        <input class="form-check-input" type="checkbox" name="actions1" id="actions1"
+                                            value="actions1">
+                                        <label class="form-check-label" for="actions1">
+                                            actions (Ações do ticket) - Campo para expand
+                                        </label>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="ownerHistories" id="ownerHistories"
+                                value="ownerHistories">
+                            <label class="form-check-label" for="ownerHistories">
+                                ownerHistories (Histórico de responsáveis)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="statusHistories" id="statusHistories"
+                                value="statusHistories">
+                            <label class="form-check-label" for="statusHistories">
+                                statusHistories (Histórico de status)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="customFieldValues"
+                                id="customFieldValues" value="customFieldValues">
+                            <label class="form-check-label" for="customFieldValues">
+                                customFieldValues (Campos adicionais)
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-auto" id="expands">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="createdBy" id="createdBy"
+                                value="createdBy">
+                            <label class="form-check-label" for="createdBy">
+                                createdBy (Gerador do ticket)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="clients" id="clients" value="clients">
+                            <label class="form-check-label" for="clients">
+                                clients (Clientes do ticket)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parentTickets" id="parentTickets"
+                                value="parentTickets">
+                            <label class="form-check-label" for="parentTickets">
+                                parentTickets (Tickets pais)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="childrenTickets" id="childrenTickets"
+                                value="childrenTickets">
+                            <label class="form-check-label" for="childrenTickets">
+                                childrenTickets (Tickets filhos)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="assets" id="assets" value="assets">
+                            <label class="form-check-label" for="assets">
+                                assets (Ativos do ticket)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="token">Token:</label>
+                <input type="text" class="form-control" id="token" name="token" required
+                    value="fe6b1d70-16a1-4f9c-aa85-97d69c68f42b">
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="id">ID do Ticket:</label>
+                <input type="number" class="form-control" id="id" name="id">
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="select-options" style="font-size: 20px;">Filters</label>
+                <div class="form-group">
+                    <label for="createdDate">Data de abertura</label>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <label for="createdDateFrom">De:</label>
+                                <input type="date" class="form-control" id="createdDateSince" name="createdDateSince">
+                            </div>
+                            <div class="col-md-auto">
+                                <label for="createdUntil">Até:</label>
+                                <input type="date" class="form-control" id="createdDateUntil" name="createdDateUntil">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </form>
+        <button id="generate" class="btn btn-primary">Gerar URL</button>
+        <div id="result" class="mt-5"></div>
+    </div>
+    <hr>
+</body>
