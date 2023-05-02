@@ -10,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const id = document.getElementById('id').value;
         const createdDateSince = document.getElementById('createdDateSince').value;
         const createdDateUntil = document.getElementById('createdDateUntil').value;
-        const boxesChecked = document.querySelector('.checkbox-options');
         const selectOptions = document.querySelectorAll('#selects input[type=checkbox]:checked');
         const expandOptions = document.querySelectorAll('#expands input[type=checkbox]:checked');
 
