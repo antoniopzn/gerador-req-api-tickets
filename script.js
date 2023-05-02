@@ -11,12 +11,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const createdDateSince = document.getElementById('createdDateSince').value;
         const createdDateUntil = document.getElementById('createdDateUntil').value;
         const selectOptions = document.querySelectorAll('#selects input[type=checkbox]:checked');
-        const expandOptions = document.querySelectorAll('#expands input[type=checkbox]:checked');
+        const expandOptions = document.querySelectorAll('input[name^="expands"]:checked');
+        const expandActionsOptions = document.querySelectorAll('input[name^="actions-options"]:checked');
+
 
         const baseUrl = "https://api.movidesk.com/public/v1/tickets";
         const params = [];
         const selectSelectedOptions = [];
         const expandSelectedOptions = [];
+        const expandActionsSelected = [];
         const filtersParams = [];
 
         if (id) {
@@ -43,20 +46,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
             }
         })
 
+        expandActionsOptions.forEach((checkbox) => {
+            if (checkbox.checked) {
+                const value = checkbox.value;
+                expandActionsSelected.push(value);
+            }
+        })
+
         if (selectSelectedOptions.length > 0) {
-            params.push(`$select=${selectSelectedOptions.join(',')}`);
+            params.push(`&$select=${selectSelectedOptions.join(',')}`);
         }
 
         if (expandSelectedOptions.length > 0) {
-            params.push(`$expand=${expandSelectedOptions.join(',')}`);
+            params.push(`&$expand=${expandSelectedOptions.join(',')}`);
+        }
+
+        if (expandActionsSelected.length > 0) {
+            params.push(`($select=${expandActionsSelected.join(',')})`);
         }
 
         if ((createdDateSince && createdDateUntil) || createdDateSince) {
-            params.push(`$filter=${filtersParams.join(' and ')}`);
+            params.push(`&$filter=${filtersParams.join(' and ')}`);
         }
 
-        const queryString = params.join('&');
-        const url = `${baseUrl}?token=${token}&${queryString}`;
+        const url = `${baseUrl}?token=${token}&${params}`;
         const resultElement = document.getElementById('result');
         resultElement.innerHTML = `<p><strong>URL Gerada:</strong> ${url}</p>`;
     })
