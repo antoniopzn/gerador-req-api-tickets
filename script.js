@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     btn.addEventListener('click', event => {
         event.preventDefault();
         const token = document.getElementById('token').value;
-        const id = document.getElementById('id').value;
         const createdDateSince = document.getElementById('createdDateSince').value;
         const createdDateUntil = document.getElementById('createdDateUntil').value;
         const selectOptions = document.querySelectorAll('#selects input[type=checkbox]:checked');
@@ -19,10 +18,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         const expandSelectedOptions = [];
         const expandActionsSelected = [];
         const filtersParams = [];
-
-        if (id) {
-            params.push(`id=${id}`);
-        }
 
         if (createdDateSince && createdDateUntil) {
             filtersParams.push(`createdDate gt ${createdDateSince} and createdDate lt ${createdDateUntil}`);
