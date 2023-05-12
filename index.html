@@ -19,7 +19,7 @@
             <div class="form-group">
                 <label for="select-options" style="font-size: 20px;">Token:</label>
                 <input type="text" class="form-control" id="token" name="token" required
-                    value="fe6b1d70-16a1-4f9c-aa85-97d69c68f42b">
+                    value="fe6b1d70-16a1-4f9c-aa85-97d69c68f42"> <!- A letra é b -->
             </div>
             <hr>
             <div class="form-group">
@@ -426,6 +426,61 @@
                                             value="createdDate">
                                         <label class="form-check-label" for="actionCreatedDate">
                                             createdDate (Data da ação)
+                                        </label>
+                                    </div>
+                                    <div class="form-check" >
+                                        <input class="form-check-input" type="checkbox" name="actions-options" id="actionCreatedBy"
+                                            value="createdBy">
+                                        <label class="form-check-label" for="createdByActionsBox">
+                                            createdBy (Criador da ação)
+                                        </label>
+                                        <div class="form-group hidden" id="createdByActions">
+                                            <hr><label for="expand-createdby-actions-options" style="font-size: 18px;">Expand - createdBy</label>
+                                            <div class="col-md-auto" id="createdby-actions-options" name="actions-options">
+                                                <div class="form-check" >
+                                                    <input class="form-check-input" type="checkbox" name="actions-options" id="actionId"
+                                                        value="id">
+                                                    <label class="form-check-label" for="actionId">
+                                                        ID (Cod. Ref. Cadastro)
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="form-check" >
+                                        <input class="form-check-input" type="checkbox" name="actions-options" id="actionIsDeleted"
+                                            value="isDeleted">
+                                        <label class="form-check-label" for="isDeleted">
+                                            isDeleted (Se ação deletada)
+                                        </label>
+                                    </div>
+                                    <div class="form-check" >
+                                        <input class="form-check-input" type="checkbox" name="actions-options" id="actionTimeAppointments"
+                                            value="timeAppointments">
+                                        <label class="form-check-label" for="timeAppointments">
+                                            timeAppointments (Apontamentos da ação)
+                                        </label>
+                                    </div>
+                                    <div class="form-check" >
+                                        <input class="form-check-input" type="checkbox" name="actions-options" id="actionExpenses"
+                                            value="expenses">
+                                        <label class="form-check-label" for="expenses">
+                                            expenses (Despesas vinculadas a ação)
+                                        </label>
+                                    </div>
+                                    <div class="form-check" >
+                                        <input class="form-check-input" type="checkbox" name="actions-options" id="actionAttachments"
+                                            value="attachments">
+                                        <label class="form-check-label" for="attachments">
+                                            attachments (Anexos da ação)
+                                        </label>
+                                    </div>
+                                    <div class="form-check" >
+                                        <input class="form-check-input" type="checkbox" name="actions-options" id="actionTags"
+                                            value="tags">
+                                        <label class="form-check-label" for="tags">
+                                            tags
                                         </label>
                                     </div>
                                 </div>

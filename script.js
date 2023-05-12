@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", function (event) {
     const btn = document.getElementById('generate');
     const actionsCheckbox = document.querySelector('#actions');
+    const createdByActionsCheckbox = document.querySelector('#actionCreatedBy');
     const expandActions = document.querySelector('#expandActions');
+    const createdByActions = document.querySelector('#createdByActions');
 
     btn.addEventListener('click', event => {
         event.preventDefault();
@@ -56,21 +58,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
         if (expandSelectedOptions.length > 0) {
             let expandOptions = '';
             if (expandSelectedOptions.includes('actions')) {
-                // Se "actions" está presente, os demais itens devem vir após ele
                 expandOptions += 'actions';
                 if (expandActionsSelected.length > 0) {
                     expandOptions += `($select=${expandActionsSelected.join(',')})`;
                 }
                 if (expandSelectedOptions.length > 1) {
-                    const remainingOptions = expandSelectedOptions.filter(option => option !== 'actions').join(',');
-                    expandOptions += `,${remainingOptions}`;
+                    const remainingOptions = expandSelectedOptions.filter(option => option !== 'actions');
+                    expandOptions += `,${remainingOptions.join(',')}`;
                 }
             } else {
-                // Se "actions" não está presente, todos os itens podem vir em qualquer ordem
                 expandOptions = expandSelectedOptions.join(',');
-                if (expandActionsSelected.length > 0) {
-                    expandOptions += `($select=${expandActionsSelected.join(',')})`;
-                }
             }
             params.push(`$expand=${expandOptions}`);
         }
@@ -90,6 +87,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
             expandActions.classList.remove('hidden');
         } else {
             expandActions.classList.add('hidden');
+        }
+    });
+
+    createdByActionsCheckbox.addEventListener('change', function () {
+        if (createdByActionsCheckbox.checked) {
+            createdByActions.classList.remove('hidden');
+        } else {
+            createdByActions.classList.add('hidden');
         }
     });
 });
